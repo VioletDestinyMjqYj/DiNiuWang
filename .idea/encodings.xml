@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/Credentials.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/SignatureExec.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/Validator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/WechatPayHttpClientBuilder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/WechatPayUploadHttpPost.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/AutoUpdateCertificatesVerifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/CertificatesVerifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/PrivateKeySigner.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/Signer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/Verifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/WechatPay2Credentials.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/auth/WechatPay2Validator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/cert/CertificatesManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/cert/SafeSingleScheduleExecutor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/constant/WechatPayHttpHeaders.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/exception/HttpCodeException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/exception/NotFoundException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/exception/ParseException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/exception/ValidationException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/exception/WechatPayException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/notification/Notification.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/notification/NotificationHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/notification/NotificationRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/notification/Request.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/util/AesUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/util/CertSerializeUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/util/PemUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/gxweilan/DiNiuWang/util/RsaCryptoUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

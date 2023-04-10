@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxweilan.DiNiuWang.mapper.OrderDetailMapper">
+
+    <insert id="createOrderDetail" parameterType="com.gxweilan.DiNiuWang.entity.OrderDetail">
+
+    </insert>
+
+    <update id="updateOrderDetail" parameterType="java.lang.String">
+
+    </update>
+
+    <delete id="deleteOrderDetail" parameterType="java.lang.String">
+
+    </delete>
+
+    <select id="getByGoodsId" resultType="java.lang.Integer" parameterType="java.lang.String">
+
+    </select>
+
+    <select id="getOrderDetailList" resultType="com.gxweilan.DiNiuWang.entity.OrderDetail"
+            parameterType="com.gxweilan.DiNiuWang.entity.OrderDetail">
+
+    </select>
+</mapper>

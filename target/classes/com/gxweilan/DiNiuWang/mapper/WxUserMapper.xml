@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxweilan.DiNiuWang.mapper.WxUserMapper">
+
+    <insert id="addWxUserInfo" parameterType="com.gxweilan.DiNiuWang.entity.WxUser">
+        INSERT INTO wx_user (openid, md5Openid, nickname, avatarUrl, gender, country, province, city, createtime, updatetime) VALUES (#{openid}, #{md5Openid}, #{userInfo.nickName}, #{avatarUrl}, #{userInfo.gender}, #{userInfo.country}, #{userInfo.province}, #{userInfo.city}, #{time}, #{time})
+    </insert>
+
+    <insert id="insert">
+        INSERT INTO wx_user (nickname,
+                             companyPhone,
+                             ordering,
+                             orderAmount,
+                             userName,
+                             myCompany,
+                             createtime,
+                             companyCreateTime,
+                             taxPaymentType,
+                             limitTime,
+                             serviceItem,
+                             priceAmount,
+                             servicePhone,
+                             financialAdviser,
+                             openid,
+                             md5Openid,
+                             gender,
+                             avatarUrl,
+                             updatetime,
+                             details,
+                             country,
+                             province,
+                             city)
+                    values (
+                            #{nikeName},
+                            #{companyPhone},
+                            #{ordering},
+                            #{orderAmount},
+                            #{userName},
+                            #{myCompany},
+                            #{createtime},
+                            #{companyCreateTime},
+                            #{taxPaymentType},
+                            #{limitTime},
+                            #{serviceItem},
+                            #{priceAmount},
+                            #{servicePhone},
+                            #{financialAdviser},
+                            #{openid},
+                            #{md5Openid},
+                            #{gender},
+                            #{avatraUrl},
+                            #{updateTime},
+                            #{details},
+                            #{country},
+                            #{province},
+                            #{city}
+                            )
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from wx_user where id = #{wuId}
+    </delete>
+
+    <select id="selWxUserInfoByMd5Openid" parameterType="com.gxweilan.DiNiuWang.entity.WxUser" resultType="com.gxweilan.DiNiuWang.entity.WxUser">
+        SELECT * FROM wx_user WHERE md5openid = #{md5Openid};
+    </select>
+
+    <select id="getCompanyPhone" resultType="com.gxweilan.DiNiuWang.entity.WxUser">
+        SELECT * FROM wx_user WHERE companyPhone = #{companyPhone};
+    </select>
+
+    <select id="seleUserData" resultType="com.gxweilan.DiNiuWang.entity.WxUser">
+        select *
+        from wx_user
+        <where>
+            <if test="userName != null and userName !=''">userName like concat(#{userName,jdbcType=VARCHAR},'%')</if>
+            <if test="myCompany != null and myCompany != '' ">and myCompany like concat(#{myCompany ,jdbcType=VARCHAR},'%')</if>
+            <if test="taxPaymentType != null and taxPaymentType != '' ">and taxPaymentType like concat(#{taxPaymentType ,jdbcType=VARCHAR},'%')</if>
+        </where>
+    </select>
+
+    <update id="updWxUserInfoByMd5Openid" parameterType="com.gxweilan.DiNiuWang.entity.WxUser">
+        UPDATE wx_user SET nickname=#{jsonUserInfo.nickName}, avatarurl=#{jsonUserInfo.avatarUrl}, gender=#{jsonUserInfo.gender}, country=#{jsonUserInfo.country}, province=#{jsonUserInfo.province}, city=#{jsonUserInfo.city}, updatetime=#{time} WHERE md5openid = #{md5Openid}
+    </update>
+
+    <update id="updWxUserInfoByCpmpanyPhone">
+        update wx_user
+        <set>
+            <if test="companyPhone != null and companyPhone !=''">companyPhone = #{companyPhone},</if>
+            <if test="userName != null and userName !=''">userName = #{userName},</if>
+            <if test="myCompany != null and myCompany !=''">myCompany = #{myCompany},</if>
+            <if test="companyCreateTime != null and companyCreateTime !=''">companyCreateTime = #{companyCreateTime},</if>
+            <if test="taxPaymentType != null and taxPaymentType !=''">taxPaymentType = #{taxPaymentType},</if>
+            <if test="limitTime != null and limitTime !=''">limitTime = #{limitTime},</if>
+            <if test="serviceItem != null and serviceItem !=''">serviceItem = #{serviceItem},</if>
+            <if test="priceAmount != null and priceAmount !=''">priceAmount = #{priceAmount},</if>
+            <if test="servicePhone != null and servicePhone != '' ">servicePhone = #{servicePhone},</if>
+            <if test="financialAdviser != null and financialAdviser !=''">financialAdviser = #{financialAdviser},</if>
+            <if test="details != null and details !=''">details = #{details}</if>
+        </set>
+        where companyPhone = #{companyPhone}
+    </update>
+
+
+</mapper>

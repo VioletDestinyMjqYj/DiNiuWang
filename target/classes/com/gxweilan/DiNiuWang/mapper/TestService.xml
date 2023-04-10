@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxweilan.DiNiuWang.mapper.AdminMapper">
+
+    <insert id="insert">
+        insert into administrator (
+        AdminNo,
+        account,
+        password,
+        nikename
+        ) values (
+        #{AdminNo},
+        #{account},
+        #{password},
+        #{nikename}
+        )
+    </insert>
+
+    <update id="update">
+        update administrator
+        <set>
+            <if test="AdminNo != null and AdminNo !=''">AdminNo = #{AdminNo},</if>
+            <if test="account != null and account !=''">account = #{account},</if>
+            <if test="password != null and password !=''">password = #{password},</if>
+            <if test="nikename != null and nikename !=''">nikename = #{nikename}</if>
+        </set>
+    </update>
+
+    <delete id="deleteById">
+        delete from administrator where id = #{adId}
+    </delete>
+
+    <delete id="deleteByIds">
+        delete from administrator where id in
+        <foreach collection="deleteByIds" item="adId" open="(" close=")" separator=",">
+            #{adId}
+        </foreach>
+    </delete>
+
+    <select id="getAdminByNo" resultType="com.gxweilan.DiNiuWang.entity.WebAdministrator">
+        select id, AdminNo, account, nikename,
+        from administrator
+        where AdminNo = #{adNo}
+    </select>
+
+    <select id="getAdminByName" resultType="com.gxweilan.DiNiuWang.entity.WebAdministrator">
+        select id, AdminNo, account, nikename,
+        from administrator
+        where nikename = #{nikename}
+    </select>
+
+    <select id="getAdminList" resultType="com.gxweilan.DiNiuWang.entity.WebAdministrator">
+        select id, AdminNo, account, nikename,
+        from administrator
+        WHERE AdminNo LIKE  concat('%',#{AdminNo},'%') OR account LIKE concat('%',#{account},'%') OR nikename LIKE concat('%',#{nikename},'%')
+    </select>
+
+</mapper>

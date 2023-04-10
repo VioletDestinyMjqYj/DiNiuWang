@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxweilan.DiNiuWang.mapper.OrderMapper">
+
+
+    <insert id="createOrder">
+        insert into order (
+            pay_no,
+            order_no,
+            out_trade_no,
+            openid,
+            pay_channel,
+            sub_pay_channel,
+            pay_amount,
+            real_pay_amount,
+            body,
+            refund_amount,
+            pay_time,
+            refund_time,
+            status,
+            fail_reason,
+            attach,
+            remark,
+            create_time,
+            update_time
+        ) values (
+                     #{payNo},
+                     #{orderNo},
+                     #{outTradeNo},
+                     #{openid},
+                     #{payChannel},
+                     #{subPayChannel},
+                     #{payAmount},
+                     #{realPayAmount},
+                     #{body},
+                     #{refundAmount},
+                     #{payTime},
+                     #{refundTime},
+                     #{status},
+                     #{failReason},
+                     #{attach},
+                     #{remark},
+                     #{createTime},
+                     #{updateTime}
+                 )
+    </insert>
+
+    <insert id="createWxOrder">
+        insert into order (
+            pay_no,
+            order_no,
+            out_trade_no,
+            openid,
+            pay_channel,
+            sub_pay_channel,
+            pay_amount,
+            real_pay_amount,
+            body,
+            refund_amount,
+            pay_time,
+            refund_time,
+            status,
+            fail_reason,
+            attach,
+            remark,
+            create_time,
+            update_time
+        ) values (
+                     #{payNo},
+                     #{orderNo},
+                     #{outTradeNo},
+                     #{openid},
+                     #{payChannel},
+                     #{subPayChannel},
+                     #{payAmount},
+                     #{realPayAmount},
+                     #{body},
+                     #{refundAmount},
+                     #{payTime},
+                     #{refundTime},
+                     #{status},
+                     #{failReason},
+                     #{attach},
+                     #{remark},
+                     #{createTime},
+                     #{updateTime}
+                 )
+    </insert>
+
+    <update id="updateOrderStatus">
+        update order
+        <set>
+            <if test="companyCode != null and companyCode !=''">companyCode = #{companyCode},</if>
+            <if test="companyName != null and companyName !=''">companyName = #{companyName},</if>
+            <if test="companyForward != null and companyForward !=''">companyForward = #{companyForward},</if>
+            <if test="companyGSCode != null and companyGSCode !=''">companyGSCode = #{companyGSCode},</if>
+            <if test="companyType != null and companyType !=''">companyType = #{companyType},</if>
+            <if test="taxPaymentType != null and taxPaymentType !=''">taxPaymentType = #{taxPaymentType},</if>
+            <if test="registrationAuthority != null and registrationAuthority !=''">registrationAuthority = #{registrationAuthority},</if>
+            <if test="companyOpTime != null and companyOpTime !=''">companyOpTime = #{companyOpTime},</if>
+            <if test="registeredCapital != null and registeredCapital !=''">registeredCapital = #{registeredCapital},</if>
+            <if test="intangibleAssets != null and intangibleAssets !=''">intangibleAssets = #{intangibleAssets},</if>
+            <if test="isOpenAccount != null ">isOpenAccount = #{isOpenAccount},</if>
+            <if test="isHaveInvoice != null ">isHaveInvoice = #{isHaveInvoice},</if>
+            <if test="isHaveEBanking != null ">isHaveEBanking = #{isHaveEBanking},</if>
+            <if test="companyAddress != null and companyAddress !=''">companyAddress = #{companyAddress},</if>
+            <if test="companyDetails != null and companyDetails !=''">companyDetails = #{companyDetails}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="getByTradeNo" resultType="java.lang.Integer">
+        select id,pay_no,order_no,out_trade_no,openid,pay_channel,sub_pay_channel,pay_amount,real_pay_amount,body,
+                             refund_amount,
+                             pay_time,
+                             refund_time,
+                             status,
+                             fail_reason,
+                             attach,
+                             remark,
+                             create_time,
+                             update_time
+        from order
+        where out_trade_no = #{outTradeNo}
+    </select>
+
+
+</mapper>

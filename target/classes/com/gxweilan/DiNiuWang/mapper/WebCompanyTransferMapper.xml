@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gxweilan.DiNiuWang.mapper.WebCompanyTransferMapper">
+
+
+    <insert id="insert">
+        insert into company_transfer (
+        companyCode,
+        companyName,
+        companyForward,
+        companyGSCode,
+        companyType,
+        taxPaymentType,
+        registrationAuthority,
+        companyOpTime,
+        registeredCapital,
+        intangibleAssets,
+        isOpenAccount,
+        isHaveInvoice,
+        isHaveEBanking,
+        companyAddress,
+        companyDetails
+        ) values (
+        #{companyCode},
+        #{companyName},
+        #{companyForward},
+        #{companyGSCode},
+        #{companyType},
+        #{taxPaymentType},
+        #{registrationAuthority},
+        #{companyOpTime},
+        #{registeredCapital},
+        #{intangibleAssets},
+        #{isOpenAccount},
+        #{isHaveInvoice},
+        #{isHaveEBanking},
+        #{companyAddress},
+        #{companyDetails}
+        )
+    </insert>
+
+    <update id="update">
+        update company_transfer
+        <set>
+            <if test="companyCode != null and companyCode !=''">companyCode = #{companyCode},</if>
+            <if test="companyName != null and companyName !=''">companyName = #{companyName},</if>
+            <if test="companyForward != null and companyForward !=''">companyForward = #{companyForward},</if>
+            <if test="companyGSCode != null and companyGSCode !=''">companyGSCode = #{companyGSCode},</if>
+            <if test="companyType != null and companyType !=''">companyType = #{companyType},</if>
+            <if test="taxPaymentType != null and taxPaymentType !=''">taxPaymentType = #{taxPaymentType},</if>
+            <if test="registrationAuthority != null and registrationAuthority !=''">registrationAuthority = #{registrationAuthority},</if>
+            <if test="companyOpTime != null and companyOpTime !=''">companyOpTime = #{companyOpTime},</if>
+            <if test="registeredCapital != null and registeredCapital !=''">registeredCapital = #{registeredCapital},</if>
+            <if test="intangibleAssets != null and intangibleAssets !=''">intangibleAssets = #{intangibleAssets},</if>
+            <if test="isOpenAccount != null ">isOpenAccount = #{isOpenAccount},</if>
+            <if test="isHaveInvoice != null ">isHaveInvoice = #{isHaveInvoice},</if>
+            <if test="isHaveEBanking != null ">isHaveEBanking = #{isHaveEBanking},</if>
+            <if test="companyAddress != null and companyAddress !=''">companyAddress = #{companyAddress},</if>
+            <if test="companyDetails != null and companyDetails !=''">companyDetails = #{companyDetails}</if>
+        </set>
+            where id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from company_transfer where id = #{ctId}
+    </delete>
+
+    <delete id="deleteByIds">
+        delete from company_transfer where id in
+        <foreach collection="deleteByIds" item="ctId" open="(" close=")" separator=",">
+            #{ctId}
+        </foreach>
+    </delete>
+
+    <select id="getCompanyById" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">
+        select id, companyCode,companyName, companyForward, companyGSCode, companyType, taxPaymentType, registrationAuthority, companyOpTime, registeredCapital, intangibleAssets, isOpenAccount, isHaveInvoice, isHaveEBanking, companyAddress, companyDetails
+        from company_transfer
+        where id = #{ctId}
+    </select>
+
+    <select id="getCompanyByName" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">
+        select id, companyCode,companyName, companyForward, companyGSCode, companyType, taxPaymentType, registrationAuthority, companyOpTime, registeredCapital, intangibleAssets, isOpenAccount, isHaveInvoice, isHaveEBanking, companyAddress, companyDetails
+        from company_transfer
+        where companyName = #{companyName}
+    </select>
+
+    <select id="getCompanyList" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">
+        select id, companyCode,companyName, companyForward, companyGSCode, companyType, taxPaymentType, registrationAuthority, companyOpTime, registeredCapital, intangibleAssets, isOpenAccount, isHaveInvoice, isHaveEBanking, companyAddress, companyDetails
+        from company_transfer
+                <where>
+                    <if test="companyCode != null and companyCode != '' ">companyCode like concat(#{companyCode ,jdbcType=VARCHAR},'%')</if>
+                    <if test="companyName != null and companyName != '' ">and companyName like concat(#{companyName ,jdbcType=VARCHAR},'%')</if>
+                    <if test="taxPaymentType != null and taxPaymentType != '' ">and taxPaymentType like concat(#{taxPaymentType},'%')</if>
+                </where>
+    </select>
+
+    <select id="getCompanyListByR" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">
+        select id, companyCode,companyName, companyForward, companyGSCode, companyType, taxPaymentType, registrationAuthority, companyOpTime, registeredCapital, intangibleAssets, isOpenAccount, isHaveInvoice, isHaveEBanking, companyAddress, companyDetails
+        from company_transfer
+    </select>
+
+    <select id="getCompanyListByRight" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">
+        select companyCode,companyName, companyForward, companyGSCode, companyType, taxPaymentType, registrationAuthority, companyOpTime, registeredCapital, intangibleAssets, isOpenAccount, isHaveInvoice, isHaveEBanking, companyAddress, companyDetails
+        from company_transfer
+    </select>
+
+
+    <!--    <select id="selectPageWithCondition" resultType="com.gxweilan.DiNiuWang.entity.CompanyTransfer">-->
+<!--        select * from company-->
+<!--        <where>-->
+<!--            <if test="id != null and id != ''">-->
+<!--                id = #{id}-->
+<!--            </if>-->
+<!--            <if test="companyCode != null and companyCode != ''">-->
+<!--                and company_code = #{companyCode}-->
+<!--            </if>-->
+<!--            <if test="companyName != null and companyName != '' ">-->
+<!--                and company_name = #{companyName}-->
+<!--            </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+<!--    companyCode like concat('%',#{companyCode},'%') or companyName like concat('%',#{companyName},'%') or companyForward like concat('%',#{companyForward},'%')-->
+
+</mapper>
